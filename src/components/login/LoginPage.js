@@ -21,9 +21,9 @@ class LoginPage extends React.Component {
   }
   updateInputState(event) {
     const field = event.target.name;
-    let course = this.state.course;
-    course[field] = event.target.value;
-    return this.setState({course: course});
+    let user = this.state.user;
+    user[field] = event.target.value;
+    return this.setState({user: user});
   }
 
   render(){
