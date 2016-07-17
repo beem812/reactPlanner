@@ -5,7 +5,7 @@ import TextInput from '../common/TextInput';
  * Defining Login page container that will pass down props to
  * login components
  */
-const LoginForm = ({onLogin, user}) => {
+const LoginForm = ({onLogin, user, onChange}) => {
   return(
     <form>
       <TextInput
@@ -27,5 +27,6 @@ const LoginForm = ({onLogin, user}) => {
 LoginForm.propTypes = {
   user: React.PropTypes.object.isRequired,
   onChange: React.PropTypes.func.isRequired,
-  onLogin: React.PropTypes.func.isRequired
+  onLogin: React.PropTypes.func.isRequired,
+  onChange: React.PropTypes.func.isRequired
 };
