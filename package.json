@@ -30,7 +30,9 @@
     "react-router-redux": "4.0.4",
     "redux": "3.5.2",
     "redux-thunk": "2.0.1",
-    "toastr": "2.1.2"
+    "request": "^2.74.0",
+    "toastr": "2.1.2",
+    "when": "^3.7.7"
   },
   "devDependencies": {
     "babel-cli": "6.8.0",
@@ -68,7 +70,8 @@
     "url-loader": "0.5.7",
     "webpack": "1.13.0",
     "webpack-dev-middleware": "1.6.1",
-    "webpack-hot-middleware": "2.10.0"
+    "webpack-hot-middleware": "2.10.0",
+    "when": "^3.7.7"
   },
   "repository": {
     "type": "git",
