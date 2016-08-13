@@ -5,7 +5,7 @@ import TextInput from '../common/TextInput';
  * Defining Login page container that will pass down props to
  * login components
  */
-const LoginForm = ({onLogin, user, onChange,errors, logging}) => {
+const LoginForm = ({onLogin, user, onChange,errors, logging, isAuthenticated}) => {
   return(
     <form className = "well">
       <TextInput
@@ -26,6 +26,7 @@ const LoginForm = ({onLogin, user, onChange,errors, logging}) => {
           value={logging ? 'Loging in...': 'Login'}
           className="btn btn-primary"
           onClick={onLogin}/>
+        <label>{isAuthenticated}</label>
     </form>
   );
 };
@@ -35,7 +36,8 @@ LoginForm.propTypes = {
   onLogin: React.PropTypes.func.isRequired,
   onChange: React.PropTypes.func.isRequired,
   errors: React.PropTypes.object,
-  logging: React.PropTypes.bool
+  logging: React.PropTypes.bool,
+  isAuthenticated: React.PropTypes.bool.isRequired
 };
 
 export default LoginForm;

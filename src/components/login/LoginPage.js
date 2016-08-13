@@ -3,8 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {browserHistory} from 'react-router';
 import LoginForm from './LoginForm';
-//import * as loginActions from '../../actions/loginActions';
-
+import * as loginActions from '../../actions/loginActions';
 
 /**
  * Defining Login page container that will pass down props to
@@ -35,7 +34,7 @@ class LoginPage extends React.Component {
   onLogin(event){
     event.preventDefault();
     this.setState({saving: true});
-    alert("username: "+this.state.user.username);
+    this.props.actions.loginUser(this.state.user.username, this.state.user.password);
   }
 
   render(){
@@ -46,15 +45,29 @@ class LoginPage extends React.Component {
         errors = {this.state.errors}
         logging = {this.state.logging}
         onLogin = {this.onLogin}
+        isAuthenticated = {this.props.isAuthenticated}
         />
     );
   }
 }
 
 LoginPage.propTypes = {
-
+  actions: PropTypes.object.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired
 };
 
+function mapDispatchToProps(dispatch){
+  return {
+    actions: bindActionCreators(loginActions, dispatch)
+  };
+}
+function mapStateToProps(state, ownProps){
+  return {
+    isAuthenticated: state.isAuthenticated
+  };
 
 
-export default connect()(LoginPage);
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
